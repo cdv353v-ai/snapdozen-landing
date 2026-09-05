@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1080px;
+    background: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  .photo {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1080&q=80') center/cover;
+    opacity: 0.6;
+  }
+  .overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+  }
+  .content {
+    position: relative; z-index: 2;
+    height: 100%;
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px;
+  }
+  .tag { font-size: 28px; font-weight: 600; color: #f093fb; margin-bottom: 24px; }
+  .headline { font-family: 'Oswald', sans-serif; font-size: 96px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 24px; }
+  .sub { font-size: 32px; line-height: 1.4; opacity: 0.9; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="photo"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="tag">01 / 12</div>
+    <div class="headline">Months building.<br>Zero signups.</div>
+    <div class="sub">Sound familiar? Проверь спрос за 2 минуты.</div>
+  </div>
+</body>
+</html>
