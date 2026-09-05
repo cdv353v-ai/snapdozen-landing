@@ -179,7 +179,7 @@
     to{transform:translateX(0);}
   }
   .frame{
-    width:112px;
+    width:120px;
     aspect-ratio:4/5;
     flex:0 0 auto;
     position:relative;
@@ -187,11 +187,22 @@
     display:flex;
     align-items:flex-end;
     padding:10px;
+    background-size:cover;
+    background-position:center;
+  }
+  .frame::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(15,12,9,0) 40%, rgba(15,12,9,.78) 100%);
+    z-index:0;
   }
   .frame .txt{
     position:relative;
     z-index:1;
-    line-height:1.15;
+    line-height:1.2;
+    color:#fff;
+    text-shadow:0 1px 4px rgba(0,0,0,.6);
   }
   .frame .tag{
     position:absolute;
@@ -202,6 +213,8 @@
     padding:2px 6px;
     border-radius:10px;
     z-index:1;
+    background:#fff;
+    color:#17140F;
   }
   @media (prefers-reduced-motion: reduce){
     .marquee-track{animation:none;}
@@ -470,36 +483,36 @@
       <div class="marquee" aria-hidden="true">
         <div class="marquee-row">
           <div class="marquee-track">
-            <div class="frame" style="background:#E5344B;"><span class="tag" style="background:#fff;color:#17140F;">-30%</span><span class="txt" style="font-family:'Unbounded';font-weight:800;font-size:15px;color:#fff;">Скидка на всё</span></div>
-            <div class="frame" style="background:#17140F;"><span class="txt" style="font-family:'Oswald';font-weight:700;font-size:15px;text-transform:uppercase;color:#EDE9DE;">Новая линейка</span></div>
-            <div class="frame" style="background:#EDE9DE;"><span class="tag" style="background:#17140F;color:#EDE9DE;">new</span><span class="txt" style="font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:15px;color:#17140F;">Твой стиль, наконец</span></div>
-            <div class="frame" style="background:#2F6F5E;"><span class="txt" style="font-family:'Manrope';font-weight:700;font-size:14px;color:#fff;">Попробуй бесплатно</span></div>
-            <div class="frame" style="background:#D8A93B;"><span class="txt" style="font-family:'Caveat';font-weight:600;font-size:20px;color:#17140F;">Успей до пятницы</span></div>
-            <div class="frame" style="background:#17140F;"><span class="tag" style="background:#E5344B;color:#fff;">beta</span><span class="txt mono" style="font-family:'JetBrains Mono';font-size:14px;color:#EDE9DE;">$7 / мес</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1610219171722-87b3f4170557?w=300&h=380&fit=crop&auto=format&q=60')"><span class="tag">-30%</span><span class="txt" style="font-family:'Unbounded';font-weight:800;font-size:15px;">Скидка на всё</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1542178036-c221b3856ed8?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Oswald';font-weight:700;font-size:15px;text-transform:uppercase;">Новая линейка</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=300&h=380&fit=crop&auto=format&q=60')"><span class="tag">new</span><span class="txt" style="font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:15px;">Твой стиль, наконец</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1610219171722-87b3f4170557?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Manrope';font-weight:700;font-size:14px;">Попробуй бесплатно</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1542178036-c221b3856ed8?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Caveat';font-weight:600;font-size:20px;">Успей до пятницы</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=300&h=380&fit=crop&auto=format&q=60')"><span class="tag">beta</span><span class="txt mono" style="font-family:'JetBrains Mono';font-size:14px;">$7 / мес</span></div>
             <!-- duplicate for seamless loop -->
-            <div class="frame" style="background:#E5344B;"><span class="tag" style="background:#fff;color:#17140F;">-30%</span><span class="txt" style="font-family:'Unbounded';font-weight:800;font-size:15px;color:#fff;">Скидка на всё</span></div>
-            <div class="frame" style="background:#17140F;"><span class="txt" style="font-family:'Oswald';font-weight:700;font-size:15px;text-transform:uppercase;color:#EDE9DE;">Новая линейка</span></div>
-            <div class="frame" style="background:#EDE9DE;"><span class="tag" style="background:#17140F;color:#EDE9DE;">new</span><span class="txt" style="font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:15px;color:#17140F;">Твой стиль, наконец</span></div>
-            <div class="frame" style="background:#2F6F5E;"><span class="txt" style="font-family:'Manrope';font-weight:700;font-size:14px;color:#fff;">Попробуй бесплатно</span></div>
-            <div class="frame" style="background:#D8A93B;"><span class="txt" style="font-family:'Caveat';font-weight:600;font-size:20px;color:#17140F;">Успей до пятницы</span></div>
-            <div class="frame" style="background:#17140F;"><span class="tag" style="background:#E5344B;color:#fff;">beta</span><span class="txt mono" style="font-family:'JetBrains Mono';font-size:14px;color:#EDE9DE;">$7 / мес</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1610219171722-87b3f4170557?w=300&h=380&fit=crop&auto=format&q=60')"><span class="tag">-30%</span><span class="txt" style="font-family:'Unbounded';font-weight:800;font-size:15px;">Скидка на всё</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1542178036-c221b3856ed8?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Oswald';font-weight:700;font-size:15px;text-transform:uppercase;">Новая линейка</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=300&h=380&fit=crop&auto=format&q=60')"><span class="tag">new</span><span class="txt" style="font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:15px;">Твой стиль, наконец</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1610219171722-87b3f4170557?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Manrope';font-weight:700;font-size:14px;">Попробуй бесплатно</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1542178036-c221b3856ed8?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Caveat';font-weight:600;font-size:20px;">Успей до пятницы</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=300&h=380&fit=crop&auto=format&q=60')"><span class="tag">beta</span><span class="txt mono" style="font-family:'JetBrains Mono';font-size:14px;">$7 / мес</span></div>
           </div>
         </div>
         <div class="marquee-row reverse">
           <div class="marquee-track">
-            <div class="frame" style="background:#22314F;"><span class="txt" style="font-family:'Unbounded';font-weight:600;font-size:14px;color:#fff;">Работает само</span></div>
-            <div class="frame" style="background:#C7BFA9;"><span class="txt" style="font-family:'Oswald';font-weight:700;font-size:15px;text-transform:uppercase;color:#17140F;">Первый шаг</span></div>
-            <div class="frame" style="background:#E5344B;"><span class="txt" style="font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:15px;color:#fff;">Сделано за минуту</span></div>
-            <div class="frame" style="background:#17140F;"><span class="txt" style="font-family:'Manrope';font-weight:700;font-size:14px;color:#EDE9DE;">Заявки растут</span></div>
-            <div class="frame" style="background:#55503F;"><span class="txt" style="font-family:'Caveat';font-weight:600;font-size:20px;color:#EDE9DE;">Без правок</span></div>
-            <div class="frame" style="background:#EDE9DE;"><span class="tag" style="background:#E5344B;color:#fff;">done</span><span class="txt mono" style="font-family:'JetBrains Mono';font-size:13px;color:#17140F;">12 / 12 готово</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1598961111901-e64e25bc0a4c?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Unbounded';font-weight:600;font-size:14px;">Работает само</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1476876240081-2df90700e007?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Oswald';font-weight:700;font-size:15px;text-transform:uppercase;">Первый шаг</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1763888476830-75c71621c0bc?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:15px;">Сделано за минуту</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1598961111901-e64e25bc0a4c?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Manrope';font-weight:700;font-size:14px;">Заявки растут</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1476876240081-2df90700e007?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Caveat';font-weight:600;font-size:20px;">Без правок</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1763888476830-75c71621c0bc?w=300&h=380&fit=crop&auto=format&q=60')"><span class="tag">done</span><span class="txt mono" style="font-family:'JetBrains Mono';font-size:13px;">12 / 12 готово</span></div>
             <!-- duplicate for seamless loop -->
-            <div class="frame" style="background:#22314F;"><span class="txt" style="font-family:'Unbounded';font-weight:600;font-size:14px;color:#fff;">Работает само</span></div>
-            <div class="frame" style="background:#C7BFA9;"><span class="txt" style="font-family:'Oswald';font-weight:700;font-size:15px;text-transform:uppercase;color:#17140F;">Первый шаг</span></div>
-            <div class="frame" style="background:#E5344B;"><span class="txt" style="font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:15px;color:#fff;">Сделано за минуту</span></div>
-            <div class="frame" style="background:#17140F;"><span class="txt" style="font-family:'Manrope';font-weight:700;font-size:14px;color:#EDE9DE;">Заявки растут</span></div>
-            <div class="frame" style="background:#55503F;"><span class="txt" style="font-family:'Caveat';font-weight:600;font-size:20px;color:#EDE9DE;">Без правок</span></div>
-            <div class="frame" style="background:#EDE9DE;"><span class="tag" style="background:#E5344B;color:#fff;">done</span><span class="txt mono" style="font-family:'JetBrains Mono';font-size:13px;color:#17140F;">12 / 12 готово</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1598961111901-e64e25bc0a4c?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Unbounded';font-weight:600;font-size:14px;">Работает само</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1476876240081-2df90700e007?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Oswald';font-weight:700;font-size:15px;text-transform:uppercase;">Первый шаг</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1763888476830-75c71621c0bc?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Playfair Display';font-style:italic;font-weight:700;font-size:15px;">Сделано за минуту</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1598961111901-e64e25bc0a4c?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Manrope';font-weight:700;font-size:14px;">Заявки растут</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1476876240081-2df90700e007?w=300&h=380&fit=crop&auto=format&q=60')"><span class="txt" style="font-family:'Caveat';font-weight:600;font-size:20px;">Без правок</span></div>
+            <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1763888476830-75c71621c0bc?w=300&h=380&fit=crop&auto=format&q=60')"><span class="tag">done</span><span class="txt mono" style="font-family:'JetBrains Mono';font-size:13px;">12 / 12 готово</span></div>
           </div>
         </div>
       </div>
@@ -619,7 +632,8 @@
       <button type="submit" class="btn btn-accent">Забронировать</button>
     </form>
     <div class="form-ok" id="formOk">Заявка принята. Напишем, как только откроем доступ.</div>
-    <p class="form-note">Форма сейчас ничего не отправляет — подключите Formspree или свой бэкенд перед публикацией.</p>
+    <p class="form-note">Оплата не сейчас. Заявка ничего не стоит — платить будете только после запуска, отдельным письмом.</p>
+    <p class="form-note">Есть вопрос? Напишите в Telegram: <a href="https://t.me/ВАШ_НИК" style="text-decoration:underline">@ВАШ_НИК</a></p>
   </div>
 </section>
 
