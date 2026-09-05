@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@1,700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper: #EDE9DE;
-    --frame: #FFFFFF;
+    --paper: #FFFFFF;
+    --frame: #FAFAFA;
     --ink: #17140F;
     --ink-soft: #55503F;
     --accent: #E5344B;
     --accent-ink: #FFFFFF;
-    --line: #C7BFA9;
+    --line: #EAEAEA;
     --radius: 2px;
   }
   *{box-sizing:border-box;}
@@ -46,7 +46,7 @@
     background-image: radial-gradient(circle, var(--ink) 2.5px, transparent 2.6px);
     background-size: 28px 14px;
     background-position: 14px center;
-    opacity:0.18;
+    opacity:0.15;
   }
 
   header{padding:22px 0;border-bottom:1px solid var(--line);}
@@ -78,11 +78,15 @@
   }
   .hero-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:48px;
+    grid-template-columns: 1.15fr 0.85fr; /* Текст занимает больше места */
+    gap:40px;
     align-items:center;
     position:relative;
     z-index:2;
+  }
+  .hero-text-col {
+    position: relative;
+    z-index: 3; /* Текст всегда поверх карточек */
   }
   .hero h1{
     font-size:46px;
@@ -104,7 +108,7 @@
   }
   .hero-note{font-size:13px;color:var(--ink-soft);}
 
-  /* Разбросанные карточки — разведены на 30% дальше */
+  /* Разбросанные карточки */
   .scatter-zone {
     position: relative;
     height: 580px;
@@ -115,7 +119,7 @@
     width: 190px;
     height: 240px;
     border-radius: 8px;
-    box-shadow: 0 24px 60px rgba(23,20,15,0.25), 0 6px 16px rgba(23,20,15,0.15);
+    box-shadow: 0 24px 60px rgba(23,20,15,0.15), 0 6px 16px rgba(23,20,15,0.08);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -140,7 +144,7 @@
     z-index: 2;
   }
 
-  /* Позиции разведены к краям — почти не перекрываются */
+  /* Позиции */
   .sc-1 { top: -2%; left: -5%; transform: rotate(-14deg); }
   .sc-2 { top: 0%; right: -12%; transform: rotate(11deg); }
   .sc-3 { top: 40%; left: -18%; transform: rotate(-8deg); }
@@ -159,7 +163,7 @@
     margin-top:28px;display:grid;grid-template-columns:repeat(2,1fr);
     gap:1px;background:var(--line);border:1px solid var(--line);
   }
-  .list-item{background:var(--paper);padding:20px 22px;font-size:15px;}
+  .list-item{background:var(--frame);padding:20px 22px;font-size:15px;}
   .list-item .k{
     display:block;font-family:'JetBrains Mono', monospace;
     font-size:16px;font-weight:500;color:var(--accent);margin-bottom:6px;
@@ -240,7 +244,7 @@
 
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-text-col">
       <h1>Ссылка на сайт → 12 рекламных карточек за 2 минуты</h1>
       <p class="sub">Без дизайнера, без брифа, без правок. Загружаете сайт — получаете архив с 12 готовыми гипотезами для Instagram и TikTok.</p>
       <div class="hero-actions">
@@ -250,8 +254,7 @@
     </div>
     
     <div class="scatter-zone">
-      
-      <!-- Карточка 1: Фото (Офис/Работа) -->
+      <!-- Карточка 1 -->
       <div class="scatter-card sc-1" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -260,7 +263,7 @@
         </div>
       </div>
 
-      <!-- Карточка 2: Фото (Абстракция/Технологии) -->
+      <!-- Карточка 2 -->
       <div class="scatter-card sc-2" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -269,7 +272,7 @@
         </div>
       </div>
 
-      <!-- Карточка 3: Фото (Минимализм/Светлое) -->
+      <!-- Карточка 3 -->
       <div class="scatter-card sc-3" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -278,7 +281,7 @@
         </div>
       </div>
 
-      <!-- Карточка 4: Фото (Темное/Ночь) -->
+      <!-- Карточка 4 -->
       <div class="scatter-card sc-4" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -287,7 +290,7 @@
         </div>
       </div>
 
-      <!-- Карточка 5: Фото (Люди/Команда) -->
+      <!-- Карточка 5 -->
       <div class="scatter-card sc-5" style="background-image: url('https://images.unsplash.com/photo-1542178036-c221b3856ed8?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -296,7 +299,7 @@
         </div>
       </div>
 
-      <!-- Карточка 6: Фото (Стартап/Драйв) -->
+      <!-- Карточка 6 -->
       <div class="scatter-card sc-6" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -304,7 +307,6 @@
           <div style="font-family: 'Manrope', sans-serif; font-size: 11px; color: rgba(255,255,255,0.9); margin-top: 10px;">Проверь спрос за 2 минуты</div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
