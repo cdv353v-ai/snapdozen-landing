@@ -104,10 +104,10 @@
   }
   .hero-note{font-size:13px;color:var(--ink-soft);}
 
-  /* Разбросанные карточки */
+  /* Разбросанные карточки — разведены на 30% дальше */
   .scatter-zone {
     position: relative;
-    height: 520px;
+    height: 580px;
     width: 100%;
   }
   .scatter-card {
@@ -115,7 +115,7 @@
     width: 190px;
     height: 240px;
     border-radius: 8px;
-    box-shadow: 0 24px 60px rgba(23,20,15,0.2), 0 6px 16px rgba(23,20,15,0.1);
+    box-shadow: 0 24px 60px rgba(23,20,15,0.25), 0 6px 16px rgba(23,20,15,0.15);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -126,25 +126,27 @@
     background-position: center;
   }
   .scatter-card:hover {
-    transform: scale(1.06) !important;
+    transform: scale(1.05) !important;
     z-index: 10;
   }
   .sc-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(23,20,15,0) 30%, rgba(23,20,15,0.85) 100%);
+    background: linear-gradient(180deg, rgba(23,20,15,0) 20%, rgba(23,20,15,0.88) 100%);
     z-index: 1;
   }
   .sc-content {
     position: relative;
     z-index: 2;
   }
-  .sc-1 { top: 2%; left: 8%; transform: rotate(-14deg); }
-  .sc-2 { top: 8%; right: 12%; transform: rotate(11deg); }
-  .sc-3 { top: 45%; left: 2%; transform: rotate(-8deg); }
-  .sc-4 { top: 50%; right: 5%; transform: rotate(13deg); }
-  .sc-5 { bottom: 5%; left: 18%; transform: rotate(-5deg); }
-  .sc-6 { bottom: 8%; right: 15%; transform: rotate(9deg); }
+
+  /* Позиции разведены к краям — почти не перекрываются */
+  .sc-1 { top: -2%; left: -5%; transform: rotate(-14deg); }
+  .sc-2 { top: 0%; right: -12%; transform: rotate(11deg); }
+  .sc-3 { top: 40%; left: -18%; transform: rotate(-8deg); }
+  .sc-4 { top: 44%; right: -18%; transform: rotate(13deg); }
+  .sc-5 { bottom: 0%; left: -2%; transform: rotate(-5deg); }
+  .sc-6 { bottom: -2%; right: -8%; transform: rotate(9deg); }
 
   section{padding:56px 0;}
   .rule{border-top:1px solid var(--line);}
@@ -213,10 +215,12 @@
   @media (max-width:760px){
     .hero-grid, .two-col, .status .wrap{grid-template-columns:1fr;}
     .hero h1{font-size:32px;}
-    .scatter-zone { height: 380px; }
+    .scatter-zone { height: 400px; }
     .scatter-card { width: 140px; height: 180px; padding: 12px; }
-    .scatter-card .sc-headline { font-size: 14px !important; }
-    .scatter-card .sc-sub { font-size: 9px !important; }
+    /* На мобильных возвращаем в пределы экрана */
+    .sc-1 { left: 0; } .sc-2 { right: 0; }
+    .sc-3 { left: 0; } .sc-4 { right: 0; }
+    .sc-5 { left: 0; } .sc-6 { right: 0; }
     .list-grid{grid-template-columns:1fr;}
     .audience{grid-template-columns:repeat(2,1fr);}
     .steps{grid-template-columns:1fr;}
@@ -246,6 +250,8 @@
     </div>
     
     <div class="scatter-zone">
+      
+      <!-- Карточка 1: Фото (Офис/Работа) -->
       <div class="scatter-card sc-1" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -254,41 +260,51 @@
         </div>
       </div>
 
-      <div class="scatter-card sc-2" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+      <!-- Карточка 2: Фото (Абстракция/Технологии) -->
+      <div class="scatter-card sc-2" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=500&fit=crop&auto=format&q=80');">
+        <div class="sc-overlay"></div>
         <div class="sc-content">
           <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.7); margin-bottom: 12px;">02 / 12</div>
           <div style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px; color: #fff; text-transform: uppercase; line-height: 1.05;">12 креативов.<br>2 минуты.</div>
         </div>
       </div>
 
-      <div class="scatter-card sc-3" style="background: #f5f5f0;">
+      <!-- Карточка 3: Фото (Минимализм/Светлое) -->
+      <div class="scatter-card sc-3" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop&auto=format&q=80');">
+        <div class="sc-overlay"></div>
         <div class="sc-content">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 20px; color: #17140F; line-height: 1.1;">Твой стиль,<br>наконец.</div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #55503F; margin-top: 10px;">new · beta</div>
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 20px; color: #fff; line-height: 1.1;">Твой стиль,<br>наконец.</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.8); margin-top: 10px;">new · beta</div>
         </div>
       </div>
 
-      <div class="scatter-card sc-4" style="background: #17140F;">
+      <!-- Карточка 4: Фото (Темное/Ночь) -->
+      <div class="scatter-card sc-4" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=500&fit=crop&auto=format&q=80');">
+        <div class="sc-overlay"></div>
         <div class="sc-content">
-          <div style="font-family: 'Caveat', cursive; font-weight: 600; font-size: 26px; color: #E5344B; line-height: 1.1;">Успей<br>до пятницы</div>
-          <div style="font-family: 'Manrope', sans-serif; font-size: 10px; color: #999; margin-top: 10px;">Ограниченное предложение</div>
+          <div style="font-family: 'Caveat', cursive; font-weight: 600; font-size: 26px; color: #E5344B; line-height: 1.1; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Успей<br>до пятницы</div>
+          <div style="font-family: 'Manrope', sans-serif; font-size: 10px; color: rgba(255,255,255,0.8); margin-top: 10px;">Ограниченное предложение</div>
         </div>
       </div>
 
+      <!-- Карточка 5: Фото (Люди/Команда) -->
       <div class="scatter-card sc-5" style="background-image: url('https://images.unsplash.com/photo-1542178036-c221b3856ed8?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #E5344B; margin-bottom: 12px;">-30%</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #E5344B; margin-bottom: 12px; font-weight: 700;">-30%</div>
           <div style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 14px; color: #fff; line-height: 1.3;">Скидка на всё<br>до конца недели</div>
         </div>
       </div>
 
-      <div class="scatter-card sc-6" style="background: #E5344B;">
+      <!-- Карточка 6: Фото (Стартап/Драйв) -->
+      <div class="scatter-card sc-6" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=500&fit=crop&auto=format&q=80');">
+        <div class="sc-overlay"></div>
         <div class="sc-content">
           <div style="font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 20px; color: #fff; line-height: 1.05;">Build something<br>people want.</div>
           <div style="font-family: 'Manrope', sans-serif; font-size: 11px; color: rgba(255,255,255,0.9); margin-top: 10px;">Проверь спрос за 2 минуты</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
