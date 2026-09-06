@@ -65,8 +65,10 @@
     text-decoration:none;
     border:1px solid var(--ink);
     cursor:pointer;
+    transition: opacity 0.2s;
   }
   .btn:hover{background:transparent;color:var(--ink);}
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; }
   .btn-accent{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);}
   .btn-accent:hover{background:transparent;color:var(--accent);}
 
@@ -78,7 +80,7 @@
   }
   .hero-grid{
     display:grid;
-    grid-template-columns: 1.15fr 0.85fr; /* Текст занимает больше места */
+    grid-template-columns: 1.15fr 0.85fr;
     gap:40px;
     align-items:center;
     position:relative;
@@ -86,7 +88,7 @@
   }
   .hero-text-col {
     position: relative;
-    z-index: 3; /* Текст всегда поверх карточек */
+    z-index: 3;
   }
   .hero h1{
     font-size:46px;
@@ -144,7 +146,6 @@
     z-index: 2;
   }
 
-  /* Позиции */
   .sc-1 { top: -2%; left: -5%; transform: rotate(-14deg); }
   .sc-2 { top: 0%; right: -12%; transform: rotate(11deg); }
   .sc-3 { top: 40%; left: -18%; transform: rotate(-8deg); }
@@ -212,6 +213,18 @@
     background:var(--frame);font-family:'Manrope',sans-serif;font-size:15px;
   }
   form.email-form input[type=email]:focus{outline:3px solid var(--accent);outline-offset:1px;}
+  
+  /* Сообщение об успехе */
+  .form-ok {
+    margin-top: 28px;
+    padding: 20px;
+    background: var(--frame);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    color: var(--ink);
+    font-weight: 600;
+    display: none;
+  }
   .form-note{margin-top:14px;font-size:13px;color:var(--ink-soft);}
 
   footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--ink-soft);text-align:center;}
@@ -221,7 +234,6 @@
     .hero h1{font-size:32px;}
     .scatter-zone { height: 400px; }
     .scatter-card { width: 140px; height: 180px; padding: 12px; }
-    /* На мобильных возвращаем в пределы экрана */
     .sc-1 { left: 0; } .sc-2 { right: 0; }
     .sc-3 { left: 0; } .sc-4 { right: 0; }
     .sc-5 { left: 0; } .sc-6 { right: 0; }
@@ -254,7 +266,6 @@
     </div>
     
     <div class="scatter-zone">
-      <!-- Карточка 1 -->
       <div class="scatter-card sc-1" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -262,8 +273,6 @@
           <div style="font-family: 'Manrope', sans-serif; font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 8px;">Sound familiar?</div>
         </div>
       </div>
-
-      <!-- Карточка 2 -->
       <div class="scatter-card sc-2" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -271,8 +280,6 @@
           <div style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px; color: #fff; text-transform: uppercase; line-height: 1.05;">12 креативов.<br>2 минуты.</div>
         </div>
       </div>
-
-      <!-- Карточка 3 -->
       <div class="scatter-card sc-3" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -280,8 +287,6 @@
           <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.8); margin-top: 10px;">new · beta</div>
         </div>
       </div>
-
-      <!-- Карточка 4 -->
       <div class="scatter-card sc-4" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -289,8 +294,6 @@
           <div style="font-family: 'Manrope', sans-serif; font-size: 10px; color: rgba(255,255,255,0.8); margin-top: 10px;">Ограниченное предложение</div>
         </div>
       </div>
-
-      <!-- Карточка 5 -->
       <div class="scatter-card sc-5" style="background-image: url('https://images.unsplash.com/photo-1542178036-c221b3856ed8?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -298,8 +301,6 @@
           <div style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 14px; color: #fff; line-height: 1.3;">Скидка на всё<br>до конца недели</div>
         </div>
       </div>
-
-      <!-- Карточка 6 -->
       <div class="scatter-card sc-6" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=500&fit=crop&auto=format&q=80');">
         <div class="sc-overlay"></div>
         <div class="sc-content">
@@ -397,10 +398,18 @@
   <div class="wrap signup-box">
     <h2>Забронировать место со скидкой</h2>
     <p>Без спама. Только письмо о запуске и ваша цена.</p>
-    <form class="email-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input type="email" name="email" placeholder="you@mail.com" required aria-label="Email">
-      <button type="submit" class="btn btn-accent">Забронировать</button>
+    
+    <form class="email-form" id="signupForm">
+        <input type="hidden" name="access_key" value="dafead31-877d-4a1c-8926-2ea24ff0ef36">
+        <input type="hidden" name="subject" value="Новая заявка на SnapDozen">
+        <input type="hidden" name="from_name" value="SnapDozen Landing">
+        
+        <input type="email" name="email" placeholder="you@mail.com" required aria-label="Email">
+        <button type="submit" class="btn btn-accent" id="submitBtn">Забронировать</button>
     </form>
+
+    <div class="form-ok" id="formOk">Заявка принята. Напишем, как только откроем доступ.</div>
+    
     <p class="form-note">Оплата не сейчас. Заявка ничего не стоит — платить будете только после запуска, отдельным письмом.</p>
   </div>
 </section>
@@ -410,6 +419,54 @@
     <span>© 2026 SnapDozen</span>
   </div>
 </footer>
+
+<script>
+  document.getElementById('signupForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const btn = document.getElementById('submitBtn');
+    const okMsg = document.getElementById('formOk');
+    
+    btn.disabled = true;
+    btn.textContent = 'Отправка...';
+
+    const data = {
+      access_key: form.querySelector('[name="access_key"]').value,
+      subject: form.querySelector('[name="subject"]').value,
+      from_name: form.querySelector('[name="from_name"]').value,
+      email: form.querySelector('[name="email"]').value
+    };
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(async (response) => {
+      let json = await response.json();
+      if (response.status === 200) {
+        form.reset();
+        form.style.display = 'none';
+        okMsg.style.display = 'block';
+      } else {
+        console.log(response);
+        alert('Что-то пошло не так. Попробуйте еще раз.');
+        btn.disabled = false;
+        btn.textContent = 'Забронировать';
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      alert('Ошибка сети. Проверьте интернет.');
+      btn.disabled = false;
+      btn.textContent = 'Забронировать';
+    });
+  });
+</script>
 
 </body>
 </html>
